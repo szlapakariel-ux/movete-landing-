@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Compensa la navbar sticky al saltar a una ancla */
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-ink-900 text-paper font-sans antialiased;
+  }
+
+  /* Foco visible y accesible en toda la landing */
+  :focus-visible {
+    @apply outline-none ring-2 ring-lime-500 ring-offset-2 ring-offset-ink-900;
+  }
+
+  ::selection {
+    @apply bg-lime-500 text-ink-900;
+  }
+}
+
+@layer utilities {
+  /* Contenedor central reutilizable */
+  .container-mv {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8;
+  }
+
+  .text-gradient-brand {
+    @apply bg-gradient-to-r from-lime-500 via-lime-400 to-brandviolet-400 bg-clip-text text-transparent;
+  }
+}
+
+/* Respeta a quien prefiere menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
