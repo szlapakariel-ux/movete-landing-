@@ -19,12 +19,12 @@ export default {
           500: '#D4FF00',
           600: '#B4DB00',
         },
-        // Violeta: color secundario de marca
+        // Violeta: color protagonista de superficies (tarjetas) en la app
         brandviolet: {
-          DEFAULT: '#8B5CF6',
-          400: '#A78BFA',
-          500: '#8B5CF6',
-          600: '#7C3AED',
+          DEFAULT: '#6D4DF3',
+          400: '#8B6CF8',
+          500: '#6D4DF3',
+          600: '#5A39D9',
         },
         // Blanco cálido / gris muy claro para secciones alternadas
         paper: {

@@ -6,7 +6,7 @@ import { PhoneMockup } from '../components/PhoneMockup'
 import { APP_SOCIO } from '../content/landing'
 
 // Pantalla del mockup asociada a cada bloque (en orden).
-const blockScreens = ['home', 'classes', 'wallet', 'home', 'qr'] as const
+const blockScreens = ['home', 'classes', 'profile', 'reservas', 'qr'] as const
 
 export function Socios() {
   const [active, setActive] = useState(0)
