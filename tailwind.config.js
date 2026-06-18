@@ -12,12 +12,12 @@ export default {
           700: '#181B22',
           600: '#22262F',
         },
-        // Verde lima flúor: CTAs, estados activos y acentos
+        // Verde lima flúor de marca: CTAs, estados activos y acentos
         lime: {
-          DEFAULT: '#C6F042',
-          400: '#D2F95E',
-          500: '#C6F042',
-          600: '#A3E635',
+          DEFAULT: '#D4FF00',
+          400: '#E1FF4D',
+          500: '#D4FF00',
+          600: '#B4DB00',
         },
         // Violeta: color secundario de marca
         brandviolet: {
@@ -40,7 +40,7 @@ export default {
         '4xl': '2rem',
       },
       boxShadow: {
-        glow: '0 0 60px -12px rgba(198, 240, 66, 0.45)',
+        glow: '0 0 60px -12px rgba(212, 255, 0, 0.45)',
         'glow-violet': '0 0 60px -12px rgba(139, 92, 246, 0.5)',
         card: '0 12px 40px -12px rgba(0, 0, 0, 0.45)',
       },
