@@ -29,3 +29,6 @@ dist-ssr
 
 # TS build info
 *.tsbuildinfo
+
+# Artefactos empaquetados
+*.zip
