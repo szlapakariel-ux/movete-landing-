@@ -16,11 +16,11 @@ export const BRAND = {
 }
 
 export const CONTACT = {
-  /** Número de WhatsApp en formato internacional, sin "+" ni espacios. Reemplazá por el real. */
-  whatsappNumber: '5491100000000',
+  /** Número de WhatsApp en formato internacional, sin "+" ni espacios. */
+  whatsappNumber: '5491122441216',
   whatsappMessage:
     'Hola 👋 Quiero solicitar una demo de Movete para mi gimnasio.',
-  email: 'hola@movete.app',
+  email: 'soporte.movete@szoluciones.com',
   /**
    * Endpoint del formulario de demo (placeholder).
    * Conectá tu servicio (Formspree, tu API, etc.). Si queda vacío,
