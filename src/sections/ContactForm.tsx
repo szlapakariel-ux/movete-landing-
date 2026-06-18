@@ -1,38 +1,40 @@
 import { useState, type FormEvent } from 'react'
-import { Send, MessageCircle, CheckCircle2, Loader2 } from 'lucide-react'
+import { MessageCircle, CheckCircle2 } from 'lucide-react'
 import { Button } from '../components/Button'
 import { CTA_FINAL, CONTACT, whatsappUrl, CTA } from '../content/landing'
 
-type Status = 'idle' | 'sending' | 'success' | 'error'
+type Status = 'idle' | 'success'
 
 const f = CTA_FINAL.form
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>('idle')
 
-  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    setStatus('sending')
 
-    const form = e.currentTarget
-    const data = Object.fromEntries(new FormData(form).entries())
+    const data = new FormData(e.currentTarget)
+    const get = (key: string) => (data.get(key) || '').toString().trim()
 
-    // Si no hay endpoint configurado, simulamos un envío exitoso.
-    if (!CONTACT.formEndpoint) {
-      setTimeout(() => setStatus('success'), 700)
-      return
-    }
+    // Armamos el mensaje de WhatsApp con los datos del formulario.
+    const lines = [
+      '👋 *Nueva solicitud de demo de Movete*',
+      '',
+      `*Nombre:* ${get('name')}`,
+      `*Gimnasio:* ${get('gym')}`,
+      `*Email:* ${get('email')}`,
+      `*Teléfono:* ${get('phone')}`,
+    ]
+    const message = get('message')
+    if (message) lines.push(`*Mensaje:* ${message}`)
 
-    try {
-      const res = await fetch(CONTACT.formEndpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(data),
-      })
-      setStatus(res.ok ? 'success' : 'error')
-    } catch {
-      setStatus('error')
-    }
+    const url = `https://wa.me/${CONTACT.whatsappNumber}?text=${encodeURIComponent(
+      lines.join('\n'),
+    )}`
+
+    // Abrimos WhatsApp (web/app) con el mensaje pre-cargado.
+    window.open(url, '_blank', 'noopener,noreferrer')
+    setStatus('success')
   }
 
   if (status === 'success') {
@@ -65,24 +67,9 @@ export function ContactForm() {
         </div>
         <Field id="message" name="message" label={f.fields.message} textarea />
 
-        {status === 'error' && (
-          <p role="alert" className="text-sm text-red-400">
-            No pudimos enviar el formulario. Probá de nuevo o escribinos por WhatsApp.
-          </p>
-        )}
-
-        <Button type="submit" variant="primary" size="lg" className="w-full" disabled={status === 'sending'}>
-          {status === 'sending' ? (
-            <>
-              <Loader2 className="h-5 w-5 animate-spin" />
-              Enviando…
-            </>
-          ) : (
-            <>
-              <Send className="h-5 w-5" />
-              {f.submit}
-            </>
-          )}
+        <Button type="submit" variant="primary" size="lg" className="w-full">
+          <MessageCircle className="h-5 w-5" />
+          {f.submit}
         </Button>
 
         <div className="flex flex-col items-center gap-2 pt-1 text-center">

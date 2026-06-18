@@ -564,7 +564,7 @@ export const CTA_FINAL = {
   form: {
     title: 'Solicitá tu demo',
     description:
-      'Dejanos tus datos y te mostramos cómo Movete se adapta a tu gimnasio. Sin compromiso.',
+      'Completá tus datos y se abre WhatsApp con el mensaje listo para enviarnos. Te respondemos para coordinar tu demo. Sin compromiso.',
     fields: {
       name: 'Nombre y apellido',
       gym: 'Nombre del gimnasio',
@@ -572,11 +572,11 @@ export const CTA_FINAL = {
       phone: 'Teléfono / WhatsApp',
       message: 'Contanos sobre tu gimnasio (opcional)',
     },
-    submit: 'Solicitar demo',
-    whatsappHint: '¿Preferís un mensaje directo?',
-    successTitle: '¡Listo! Recibimos tu solicitud',
+    submit: 'Solicitar demo por WhatsApp',
+    whatsappHint: '¿Preferís escribirnos directo?',
+    successTitle: '¡Abrimos WhatsApp con tu solicitud!',
     successMessage:
-      'Te vamos a contactar muy pronto para coordinar tu demo de Movete.',
+      'Revisá la ventana de WhatsApp y tocá enviar para que recibamos tu pedido de demo. Si no se abrió, usá el botón de abajo.',
   },
 }
 
