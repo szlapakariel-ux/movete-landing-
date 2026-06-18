@@ -8,19 +8,17 @@ on:
   # Permite ejecutarlo manualmente desde la pestaña Actions.
   workflow_dispatch:
 
-# Permisos necesarios para publicar en GitHub Pages.
+# Permite que el workflow escriba la rama gh-pages.
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
-# Un solo deploy a la vez; no cancela los que están en curso.
+# Un solo deploy a la vez.
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -41,21 +39,9 @@ jobs:
           VITE_BASE: /movete-landing-/
         run: npm run build
 
-      - name: Configurar Pages
-        uses: actions/configure-pages@v5
-
-      - name: Subir artefacto
-        uses: actions/upload-pages-artifact@v3
+      - name: Publicar en la rama gh-pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          path: dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Desplegar en GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages
