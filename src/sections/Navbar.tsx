@@ -1,12 +1,16 @@
-import { useEffect, useState } from 'react'
-import { Menu, X } from 'lucide-react'
+import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { Menu, X, ChevronDown } from 'lucide-react'
 import { Logo } from '../components/Logo'
 import { Button } from '../components/Button'
-import { NAV_LINKS, CTA } from '../content/landing'
+import { FEATURE_PAGES, DEMO_PAGE } from '../content/pages'
+import { track } from '../analytics'
 
 export function Navbar() {
   const [open, setOpen] = useState(false)
+  const [solutionsOpen, setSolutionsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const closeTimer = useRef<ReturnType<typeof setTimeout>>()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)
@@ -15,43 +19,88 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  const openSolutions = () => {
+    clearTimeout(closeTimer.current)
+    setSolutionsOpen(true)
+  }
+  const closeSolutions = () => {
+    closeTimer.current = setTimeout(() => setSolutionsOpen(false), 120)
+  }
+
+  const onFeatureClick = (nav: string) => {
+    track('click_feature_page', { feature: nav, from: 'navbar' })
+    setOpen(false)
+    setSolutionsOpen(false)
+  }
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        scrolled || open
-          ? 'border-b border-white/10 bg-ink-900/90 backdrop-blur'
-          : 'bg-transparent'
+        scrolled || open ? 'border-b border-white/10 bg-ink-900/90 backdrop-blur' : 'bg-transparent'
       }`}
     >
       <nav
         className="container-mv flex h-16 items-center justify-between sm:h-20"
         aria-label="Navegación principal"
       >
-        <a href="#hero" aria-label="Movete — inicio">
+        <Link to="/" aria-label="Movete — inicio">
           <Logo />
-        </a>
+        </Link>
 
-        {/* Links desktop */}
+        {/* Desktop */}
         <ul className="hidden items-center gap-8 lg:flex">
-          {NAV_LINKS.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className="text-sm font-medium text-paper/75 transition-colors hover:text-lime-400"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
+          <li>
+            <Link to="/" className="text-sm font-medium text-paper/75 transition-colors hover:text-lime-400">
+              Inicio
+            </Link>
+          </li>
+
+          <li className="relative" onMouseEnter={openSolutions} onMouseLeave={closeSolutions}>
+            <button
+              type="button"
+              className="flex items-center gap-1 text-sm font-medium text-paper/75 transition-colors hover:text-lime-400"
+              aria-expanded={solutionsOpen}
+              aria-haspopup="true"
+              onClick={() => setSolutionsOpen((v) => !v)}
+            >
+              Soluciones
+              <ChevronDown className={`h-4 w-4 transition-transform ${solutionsOpen ? 'rotate-180' : ''}`} />
+            </button>
+            {solutionsOpen && (
+              <div className="absolute left-0 top-full w-72 pt-3">
+                <ul className="overflow-hidden rounded-2xl border border-white/10 bg-ink-800 p-2 shadow-card">
+                  {FEATURE_PAGES.map((p) => (
+                    <li key={p.slug}>
+                      <Link
+                        to={p.slug}
+                        onClick={() => onFeatureClick(p.nav)}
+                        className="block rounded-xl px-4 py-2.5 text-sm text-paper/80 transition-colors hover:bg-white/5 hover:text-lime-400"
+                      >
+                        {p.nav}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </li>
+
+          <li>
+            <Link
+              to="/#como-funciona"
+              className="text-sm font-medium text-paper/75 transition-colors hover:text-lime-400"
+            >
+              Cómo funciona
+            </Link>
+          </li>
         </ul>
 
         <div className="hidden lg:block">
-          <Button as="a" href="#demo" variant="primary">
-            {CTA.primary}
+          <Button as="a" href={DEMO_PAGE.slug} variant="primary">
+            {DEMO_PAGE.nav}
           </Button>
         </div>
 
-        {/* Toggle mobile */}
         <button
           type="button"
           className="inline-flex items-center justify-center rounded-lg p-2 text-paper lg:hidden"
@@ -63,31 +112,52 @@ export function Navbar() {
         </button>
       </nav>
 
-      {/* Menú mobile */}
+      {/* Mobile */}
       {open && (
         <div className="border-t border-white/10 bg-ink-900 lg:hidden">
           <ul className="container-mv flex flex-col gap-1 py-4">
-            {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  className="block rounded-lg px-2 py-3 text-base font-medium text-paper/80 hover:bg-white/5 hover:text-lime-400"
-                  onClick={() => setOpen(false)}
+            <li>
+              <Link
+                to="/"
+                onClick={() => setOpen(false)}
+                className="block rounded-lg px-2 py-3 text-base font-medium text-paper/80 hover:bg-white/5 hover:text-lime-400"
+              >
+                Inicio
+              </Link>
+            </li>
+            <li className="px-2 pt-2 text-xs font-semibold uppercase tracking-widest text-paper/40">
+              Soluciones
+            </li>
+            {FEATURE_PAGES.map((p) => (
+              <li key={p.slug}>
+                <Link
+                  to={p.slug}
+                  onClick={() => onFeatureClick(p.nav)}
+                  className="block rounded-lg px-4 py-3 text-base font-medium text-paper/80 hover:bg-white/5 hover:text-lime-400"
                 >
-                  {link.label}
-                </a>
+                  {p.nav}
+                </Link>
               </li>
             ))}
+            <li>
+              <Link
+                to="/#como-funciona"
+                onClick={() => setOpen(false)}
+                className="mt-1 block rounded-lg px-2 py-3 text-base font-medium text-paper/80 hover:bg-white/5 hover:text-lime-400"
+              >
+                Cómo funciona
+              </Link>
+            </li>
             <li className="mt-2">
               <Button
                 as="a"
-                href="#demo"
+                href={DEMO_PAGE.slug}
                 variant="primary"
                 size="lg"
                 className="w-full"
                 onClick={() => setOpen(false)}
               >
-                {CTA.primary}
+                {DEMO_PAGE.nav}
               </Button>
             </li>
           </ul>
