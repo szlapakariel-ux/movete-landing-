@@ -16,8 +16,9 @@ export function Hero() {
       <div className="pointer-events-none absolute -right-24 top-40 h-96 w-96 rounded-full bg-brandviolet-500/20 blur-3xl" />
 
       <div className="container-mv relative grid items-center gap-14 lg:grid-cols-2">
-        {/* Texto */}
-        <div className="animate-fade-up text-center lg:text-left">
+        {/* Texto — el badge y el H1 quedan FUERA de la animación para que
+            sean siempre visibles (LCP detectable por crawlers/Lighthouse). */}
+        <div className="text-center lg:text-left">
           <span className="inline-flex items-center gap-2 rounded-full border border-lime-500/30 bg-lime-500/10 px-4 py-1.5 text-xs font-semibold text-lime-400">
             <Smartphone className="h-4 w-4" />
             {HERO.eyebrow}
@@ -29,30 +30,32 @@ export function Hero() {
             plataforma
           </h1>
 
-          <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-paper/75 sm:text-lg lg:mx-0">
-            {HERO.subtitle}
-          </p>
+          <div className="animate-fade-up">
+            <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-paper/75 sm:text-lg lg:mx-0">
+              {HERO.subtitle}
+            </p>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
-            <Button as="a" href="#demo" variant="primary" size="lg">
-              {CTA.primary}
-              <ArrowRight className="h-5 w-5" />
-            </Button>
-            <Button as="a" href="#como-funciona" variant="secondary" size="lg">
-              {CTA.secondary}
-            </Button>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
+              <Button as="a" href="#demo" variant="primary" size="lg">
+                {CTA.primary}
+                <ArrowRight className="h-5 w-5" />
+              </Button>
+              <Button as="a" href="#como-funciona" variant="secondary" size="lg">
+                {CTA.secondary}
+              </Button>
+            </div>
+
+            <ul className="mx-auto mt-9 grid max-w-xl gap-3 text-left sm:grid-cols-2 lg:mx-0">
+              {HERO.bullets.map((b) => (
+                <li key={b} className="flex items-start gap-2.5 text-sm text-paper/85">
+                  <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-lime-500/20">
+                    <Check className="h-3.5 w-3.5 text-lime-400" strokeWidth={3} />
+                  </span>
+                  {b}
+                </li>
+              ))}
+            </ul>
           </div>
-
-          <ul className="mx-auto mt-9 grid max-w-xl gap-3 text-left sm:grid-cols-2 lg:mx-0">
-            {HERO.bullets.map((b) => (
-              <li key={b} className="flex items-start gap-2.5 text-sm text-paper/85">
-                <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-lime-500/20">
-                  <Check className="h-3.5 w-3.5 text-lime-400" strokeWidth={3} />
-                </span>
-                {b}
-              </li>
-            ))}
-          </ul>
         </div>
 
         {/* Composición visual: app + panel */}
