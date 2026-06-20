@@ -1,0 +1,22 @@
+{
+  "_client-C5PwfxSH.js": {
+    "file": "assets/client-C5PwfxSH.js",
+    "name": "client",
+    "isDynamicEntry": true,
+    "imports": [
+      "index.html"
+    ]
+  },
+  "index.html": {
+    "file": "assets/app-tdmmJnVo.js",
+    "name": "app",
+    "src": "index.html",
+    "isEntry": true,
+    "dynamicImports": [
+      "_client-C5PwfxSH.js"
+    ],
+    "css": [
+      "assets/app-B5b_jlqp.css"
+    ]
+  }
+}
