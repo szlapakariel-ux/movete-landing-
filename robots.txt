@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://movete.szoluciones.com/sitemap.xml

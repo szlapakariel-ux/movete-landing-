@@ -17,7 +17,7 @@
       content="software para gimnasios, gestión de gimnasios, app para socios de gimnasio, reservas de clases, abonos y membresías, control de asistencia, pagos para gimnasios, app crossfit, software box, gestión pilates yoga"
     />
     <meta name="author" content="Movete" />
-    <link rel="canonical" href="https://movete.app/" />
+    <link rel="canonical" href="https://movete.szoluciones.com/" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -28,8 +28,8 @@
       content="Gestioná tu gimnasio desde un solo lugar y ofrecé a tus socios una app simple para entrenar sin fricciones."
     />
     <meta property="og:locale" content="es_AR" />
-    <meta property="og:url" content="https://movete.app/" />
-    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:url" content="https://movete.szoluciones.com/" />
+    <meta property="og:image" content="https://movete.szoluciones.com/og-image.png" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -38,7 +38,31 @@
       name="twitter:description"
       content="Un panel web completo para administrar tu gimnasio y una app Android para tus socios."
     />
-    <meta name="twitter:image" content="/og-image.png" />
+    <meta name="twitter:image" content="https://movete.szoluciones.com/og-image.png" />
+
+    <!-- Structured data (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Movete",
+        "url": "https://movete.szoluciones.com/",
+        "description": "Plataforma para gimnasios, boxes y estudios. Panel web para administrar clases, reservas, pagos, abonos y asistencia, más una app Android para socios.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web, Android",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "ARS",
+          "description": "Demo gratuito disponible"
+        },
+        "author": {
+          "@type": "Organization",
+          "name": "Movete",
+          "url": "https://movete.szoluciones.com/"
+        }
+      }
+    </script>
 
     <!-- Fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -51,6 +75,32 @@
     <link rel="stylesheet" crossorigin href="/movete-landing-/assets/index-CuK4e--m.css">
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!--
+        Contenido SEO de respaldo: visible para crawlers o usuarios sin JS.
+        React lo reemplaza al montar la app.
+      -->
+      <noscript>
+        <h1>Movete — Software de gestión para gimnasios y app para socios</h1>
+        <p>
+          Movete es la plataforma para gimnasios, boxes y estudios: un panel web
+          para administrar clases, reservas, pagos, abonos, membresías y
+          asistencia, más una app Android para que tus socios reserven, consulten
+          sus abonos y hagan check-in con QR.
+        </p>
+        <ul>
+          <li><a href="#problema">El problema</a></li>
+          <li><a href="#solucion">La solución</a></li>
+          <li><a href="#admin">Panel para administradores</a></li>
+          <li><a href="#app-socio">App móvil para socios</a></li>
+          <li><a href="#pagos">Pagos, abonos y membresías</a></li>
+          <li><a href="#seguridad">Seguridad y privacidad</a></li>
+          <li><a href="#como-funciona">Cómo funciona</a></li>
+          <li><a href="#beneficios">Beneficios</a></li>
+          <li><a href="#diferencial">Diferenciales</a></li>
+          <li><a href="#demo">Solicitar demo</a></li>
+        </ul>
+      </noscript>
+    </div>
   </body>
 </html>
