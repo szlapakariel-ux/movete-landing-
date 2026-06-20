@@ -15,28 +15,18 @@ type Screen = 'home' | 'classes' | 'reservas' | 'profile' | 'qr'
 interface PhoneMockupProps {
   screen?: Screen
   className?: string
-  /** Texto alternativo accesible que describe la pantalla mostrada. */
-  label?: string
-}
-
-const screenLabels: Record<Screen, string> = {
-  home: 'Pantalla de inicio de la app Movete',
-  classes: 'Pantalla de clases disponibles de la app Movete',
-  reservas: 'Pantalla de reservas de la app Movete',
-  profile: 'Pantalla de perfil y abono de la app Movete',
-  qr: 'Pantalla de check-in con QR de la app Movete',
 }
 
 /**
  * Mockup de la app móvil Android del socio (replica fiel de la app real).
  * Fondo oscuro, tarjetas violetas y acentos lima, como en la app.
+ * Es ilustrativo: se marca aria-hidden para los lectores de pantalla.
  */
-export function PhoneMockup({ screen = 'home', className = '', label }: PhoneMockupProps) {
+export function PhoneMockup({ screen = 'home', className = '' }: PhoneMockupProps) {
   return (
     <div
       className={`relative mx-auto w-[270px] select-none ${className}`}
-      role="img"
-      aria-label={label ?? screenLabels[screen]}
+      aria-hidden="true"
     >
       <div className="relative rounded-[2.5rem] border-[10px] border-ink-600 bg-ink-900 shadow-2xl shadow-black/60">
         <div className="absolute left-1/2 top-2 z-10 h-5 w-24 -translate-x-1/2 rounded-full bg-ink-600" />

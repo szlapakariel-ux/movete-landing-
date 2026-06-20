@@ -12,8 +12,7 @@ export function AdminMockup({ className = '' }: AdminMockupProps) {
   return (
     <div
       className={`w-full max-w-xl select-none ${className}`}
-      role="img"
-      aria-label="Panel web de administración de Movete para el gimnasio"
+      aria-hidden="true"
     >
       <div className="overflow-hidden rounded-2xl border border-white/10 bg-ink-800 shadow-2xl shadow-black/50">
         {/* Barra del navegador */}

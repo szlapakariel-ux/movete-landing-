@@ -25,7 +25,7 @@ export function Socios() {
       <div className="mt-14 grid gap-12 lg:grid-cols-[340px_1fr] lg:items-start">
         {/* Mockup pegajoso que cambia según el bloque activo */}
         <div className="order-1 lg:sticky lg:top-28">
-          <PhoneMockup screen={screen} label={`App de Movete: ${APP_SOCIO.blocks[active].title}`} />
+          <PhoneMockup screen={screen} />
         </div>
 
         {/* Bloques de funciones */}
