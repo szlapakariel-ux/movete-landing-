@@ -1,0 +1,40 @@
+import { Hero } from '../sections/Hero'
+import { Problema } from '../sections/Problema'
+import { Solucion } from '../sections/Solucion'
+import { SolucionesLinks } from '../sections/SolucionesLinks'
+import { Administradores } from '../sections/Administradores'
+import { Socios } from '../sections/Socios'
+import { Pagos } from '../sections/Pagos'
+import { Seguridad } from '../sections/Seguridad'
+import { ComoFunciona } from '../sections/ComoFunciona'
+import { Beneficios } from '../sections/Beneficios'
+import { Diferencial } from '../sections/Diferencial'
+import { CTAFinal } from '../sections/CTAFinal'
+import { Seo } from '../components/Seo'
+import { HOME_PAGE } from '../content/pages'
+import { organizationLd, softwareApplicationLd } from '../seo/structuredData'
+
+export default function Home() {
+  return (
+    <>
+      <Seo
+        title={HOME_PAGE.seoTitle}
+        description={HOME_PAGE.seoDescription}
+        path="/"
+        jsonLd={[organizationLd, softwareApplicationLd]}
+      />
+      <Hero />
+      <Problema />
+      <Solucion />
+      <SolucionesLinks />
+      <Administradores />
+      <Socios />
+      <Pagos />
+      <Seguridad />
+      <ComoFunciona />
+      <Beneficios />
+      <Diferencial />
+      <CTAFinal />
+    </>
+  )
+}

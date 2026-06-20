@@ -1,6 +1,9 @@
+import { Link } from 'react-router-dom'
 import { MessageCircle, Mail } from 'lucide-react'
 import { Logo } from '../components/Logo'
-import { NAV_LINKS, FOOTER, BRAND, CONTACT, whatsappUrl } from '../content/landing'
+import { FOOTER, BRAND, CONTACT, whatsappUrl } from '../content/landing'
+import { FEATURE_PAGES, DEMO_PAGE } from '../content/pages'
+import { track } from '../analytics'
 
 export function Footer() {
   const year = new Date().getFullYear()
@@ -9,32 +12,33 @@ export function Footer() {
     <footer className="border-t border-white/10 bg-ink-900" aria-label="Pie de página">
       <div className="container-mv py-14">
         <div className="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr]">
-          {/* Marca */}
           <div>
             <Logo />
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-paper/60">
-              {FOOTER.description}
-            </p>
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-paper/60">{FOOTER.description}</p>
           </div>
 
-          {/* Navegación */}
-          <nav aria-label="Enlaces del pie">
-            <p className="text-sm font-semibold text-paper">Navegación</p>
+          <nav aria-label="Soluciones">
+            <p className="text-sm font-semibold text-paper">Soluciones</p>
             <ul className="mt-4 space-y-2.5">
-              {NAV_LINKS.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
+              {FEATURE_PAGES.map((p) => (
+                <li key={p.slug}>
+                  <Link
+                    to={p.slug}
+                    onClick={() => track('click_feature_page', { feature: p.nav, from: 'footer' })}
                     className="text-sm text-paper/60 transition-colors hover:text-lime-400"
                   >
-                    {link.label}
-                  </a>
+                    {p.nav}
+                  </Link>
                 </li>
               ))}
+              <li>
+                <Link to={DEMO_PAGE.slug} className="text-sm text-paper/60 transition-colors hover:text-lime-400">
+                  {DEMO_PAGE.nav}
+                </Link>
+              </li>
             </ul>
           </nav>
 
-          {/* Contacto */}
           <div>
             <p className="text-sm font-semibold text-paper">Contacto</p>
             <ul className="mt-4 space-y-3">
@@ -43,6 +47,7 @@ export function Footer() {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => track('click_whatsapp', { from: 'footer' })}
                   className="inline-flex items-center gap-2 text-sm text-paper/60 transition-colors hover:text-lime-400"
                 >
                   <MessageCircle className="h-4 w-4" />
