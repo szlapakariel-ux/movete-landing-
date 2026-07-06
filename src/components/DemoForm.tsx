@@ -65,6 +65,7 @@ export function DemoForm() {
       sedes: data.sedes,
       problema: data.problema,
     })
+    track('demo_solicitada', { metodo: 'formulario', origen: 'pagina_demo' })
 
     // Envío por email vía Web3Forms si está configurada la clave pública.
     if (WEB3FORMS_KEY) {
@@ -104,7 +105,10 @@ export function DemoForm() {
           rel="noopener noreferrer"
           variant="whatsapp"
           className="mt-6"
-          onClick={() => track('click_whatsapp', { from: 'demo_success' })}
+          onClick={() => {
+            track('click_whatsapp', { from: 'demo_success' })
+              track('demo_solicitada', { metodo: 'whatsapp_directo', origen: 'pagina_demo' })
+          }}
         >
           <MessageCircle className="h-4 w-4" />
           Enviar también por WhatsApp

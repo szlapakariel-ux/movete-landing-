@@ -27,6 +27,8 @@ export type AnalyticsEvent =
   | 'click_play_store'
   | 'click_feature_page'
   | 'view_feature_page'
+  | 'page_view'
+  | 'demo_solicitada'
 
 /** Inicializa GA4 (carga el script de gtag una sola vez) si hay ID configurado. */
 export function initAnalytics() {
