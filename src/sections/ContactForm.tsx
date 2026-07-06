@@ -2,6 +2,7 @@ import { useState, type FormEvent } from 'react'
 import { MessageCircle, CheckCircle2 } from 'lucide-react'
 import { Button } from '../components/Button'
 import { CTA_FINAL, CONTACT, whatsappUrl, CTA } from '../content/landing'
+import { track } from '../analytics'
 
 type Status = 'idle' | 'success'
 
@@ -35,6 +36,7 @@ export function ContactForm() {
     // Abrimos WhatsApp (web/app) con el mensaje pre-cargado.
     window.open(url, '_blank', 'noopener,noreferrer')
     setStatus('success')
+    track('demo_solicitada', { metodo: 'formulario', origen: 'home' })
   }
 
   if (status === 'success') {
@@ -77,6 +79,7 @@ export function ContactForm() {
           <a
             href={whatsappUrl}
             target="_blank"
+            onClick={() => track('demo_solicitada', { metodo: 'whatsapp_directo', origen: 'home' })}
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-sm font-semibold text-lime-400 hover:text-lime-300"
           >
