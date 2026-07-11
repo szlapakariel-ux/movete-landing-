@@ -1,18 +1,19 @@
 # Movete
 
 > Plataforma de gestión para gimnasios, boxes y estudios.
-> Panel web para administradores y app Android para socios.
+> Panel web para administradores y app móvil para socios (Android y iPhone).
 
 ## Producto
 
 Movete centraliza la gestión de socios, clases, reservas, pagos,
 abonos y estadísticas en un solo panel web. Los socios tienen una
-app Android para reservar clases, ver abonos y hacer check-in con QR.
+app móvil (Android y iPhone vía PWA) para reservar clases, ver abonos
+y hacer check-in con QR.
 
 ## Funcionalidades principales
 
 - [Panel web de administración](https://movete.szoluciones.com/#admin): socios, clases, reservas, pagos, reportes
-- [App Android para socios](https://movete.szoluciones.com/#app-socio): reservas, abonos, check-in QR, notificaciones
+- [App móvil para socios](https://movete.szoluciones.com/#app-socio): Android y iPhone; reservas, abonos, check-in QR, notificaciones
 - [Pagos y abonos](https://movete.szoluciones.com/#pagos): integración con Mercado Pago
 - [Cómo funciona](https://movete.szoluciones.com/#como-funciona): multi-sede y multi-organización
 - [Planes y precios](https://movete.szoluciones.com/#precios): Starter, Growth, Pro y Enterprise, con consulta por WhatsApp
