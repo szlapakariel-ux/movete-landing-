@@ -15,6 +15,7 @@ app Android para reservar clases, ver abonos y hacer check-in con QR.
 - [App Android para socios](https://movete.szoluciones.com/#app-socio): reservas, abonos, check-in QR, notificaciones
 - [Pagos y abonos](https://movete.szoluciones.com/#pagos): integración con Mercado Pago
 - [Cómo funciona](https://movete.szoluciones.com/#como-funciona): multi-sede y multi-organización
+- [Planes y precios](https://movete.szoluciones.com/#precios): Starter, Growth, Pro y Enterprise, con consulta por WhatsApp
 - [Seguridad y roles](https://movete.szoluciones.com/#seguridad): permisos para el equipo
 
 ## Contacto y demo

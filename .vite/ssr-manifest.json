@@ -2,7 +2,7 @@
   "\u0000/home/runner/work/movete-landing-/movete-landing-/node_modules/prop-types/index.js?commonjs-module": [],
   "\u0000/home/runner/work/movete-landing-/movete-landing-/node_modules/react-dom/cjs/react-dom.production.min.js?commonjs-exports": [],
   "\u0000/home/runner/work/movete-landing-/movete-landing-/node_modules/react-dom/client.js?commonjs-exports": [
-    "/movete-landing-/assets/client-nZrOZTxL.js"
+    "/movete-landing-/assets/client-en_uamO-.js"
   ],
   "\u0000/home/runner/work/movete-landing-/movete-landing-/node_modules/react-dom/index.js?commonjs-module": [],
   "\u0000/home/runner/work/movete-landing-/movete-landing-/node_modules/react/cjs/react-jsx-runtime.production.min.js?commonjs-exports": [],
@@ -83,7 +83,7 @@
   "node_modules/prop-types/lib/ReactPropTypesSecret.js": [],
   "node_modules/react-dom/cjs/react-dom.production.min.js": [],
   "node_modules/react-dom/client.js": [
-    "/movete-landing-/assets/client-nZrOZTxL.js"
+    "/movete-landing-/assets/client-en_uamO-.js"
   ],
   "node_modules/react-dom/index.js": [],
   "node_modules/react-fast-compare/index.js": [],
@@ -140,6 +140,7 @@
   "src/sections/Hero.tsx": [],
   "src/sections/Navbar.tsx": [],
   "src/sections/Pagos.tsx": [],
+  "src/sections/Planes.tsx": [],
   "src/sections/Problema.tsx": [],
   "src/sections/Seguridad.tsx": [],
   "src/sections/Socios.tsx": [],

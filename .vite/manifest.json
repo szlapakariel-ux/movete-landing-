@@ -1,6 +1,6 @@
 {
-  "_client-nZrOZTxL.js": {
-    "file": "assets/client-nZrOZTxL.js",
+  "_client-en_uamO-.js": {
+    "file": "assets/client-en_uamO-.js",
     "name": "client",
     "isDynamicEntry": true,
     "imports": [
@@ -8,15 +8,15 @@
     ]
   },
   "index.html": {
-    "file": "assets/app-D54EvL-m.js",
+    "file": "assets/app-Cf4d6wsW.js",
     "name": "app",
     "src": "index.html",
     "isEntry": true,
     "dynamicImports": [
-      "_client-nZrOZTxL.js"
+      "_client-en_uamO-.js"
     ],
     "css": [
-      "assets/app-DmazROLl.css"
+      "assets/app-DIJxVEZE.css"
     ]
   }
 }
