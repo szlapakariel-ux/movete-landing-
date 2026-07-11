@@ -12,7 +12,7 @@
  * =========================================================== */
 export const BRAND = {
   name: 'Movete',
-  tagline: 'Gestión de gimnasios + app para socios',
+  tagline: 'Gestión de espacios de entrenamiento + app para socios',
 }
 
 export const CONTACT = {
@@ -61,8 +61,8 @@ export const CTA = {
  * 1. HERO
  * =========================================================== */
 export const HERO = {
-  eyebrow: 'Plataforma para gimnasios, boxes y estudios',
-  title: 'Todo tu gimnasio ordenado en una sola plataforma',
+  eyebrow: 'Para gimnasios, boxes de CrossFit, estudios de yoga y pilates, entrenadores y más',
+  title: 'Tu gimnasio, box o estudio, ordenado en una sola plataforma',
   subtitle:
     'Movete centraliza la gestión administrativa y le da a tus socios una app móvil para reservar clases, ver sus abonos, recibir notificaciones y hacer check-in con QR.',
   bullets: [
@@ -495,7 +495,7 @@ export const COMO_FUNCIONA = {
  * =========================================================== */
 export const PLANES = {
   eyebrow: 'Planes y precios',
-  title: 'Un plan para cada etapa de tu gimnasio',
+  title: 'Un plan para cada etapa de tu negocio',
   subtitle:
     'Elegí según la cantidad de socios activos. Precios en pesos argentinos, por mes. ¿No sabés cuál va mejor? Escribinos y te ayudamos a elegir.',
   cta: 'Consultar por WhatsApp',
@@ -606,7 +606,7 @@ export const DIFERENCIAL = {
 export const CTA_FINAL = {
   eyebrow: 'Empecemos',
   title:
-    'Convertí la gestión de tu gimnasio en una experiencia simple, ordenada y profesional',
+    'Convertí la gestión de tu espacio de entrenamiento en una experiencia simple, ordenada y profesional',
   subtitle:
     'Movete te ayuda a administrar mejor, reducir tareas manuales y ofrecer a tus socios una app moderna para entrenar sin fricciones.',
   form: {

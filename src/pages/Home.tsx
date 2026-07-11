@@ -2,6 +2,7 @@ import { Hero } from '../sections/Hero'
 import { Problema } from '../sections/Problema'
 import { Solucion } from '../sections/Solucion'
 import { SolucionesLinks } from '../sections/SolucionesLinks'
+import { ParaQuien } from '../sections/ParaQuien'
 import { Administradores } from '../sections/Administradores'
 import { Socios } from '../sections/Socios'
 import { Pagos } from '../sections/Pagos'
@@ -28,6 +29,7 @@ export default function Home() {
       <Problema />
       <Solucion />
       <SolucionesLinks />
+      <ParaQuien />
       <Administradores />
       <Socios />
       <Pagos />

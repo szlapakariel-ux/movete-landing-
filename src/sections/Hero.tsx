@@ -25,7 +25,7 @@ export function Hero() {
           </span>
 
           <h1 className="mt-6 font-display text-4xl font-extrabold leading-[1.1] sm:text-5xl lg:text-[3.4rem]">
-            Todo tu gimnasio{' '}
+            Tu gimnasio, box o estudio,{' '}
             <span className="text-gradient-brand">ordenado</span> en una sola
             plataforma
           </h1>

@@ -3,14 +3,16 @@ import { Link } from 'react-router-dom'
 import { Menu, X, ChevronDown } from 'lucide-react'
 import { Logo } from '../components/Logo'
 import { Button } from '../components/Button'
-import { FEATURE_PAGES, DEMO_PAGE } from '../content/pages'
+import { FEATURE_PAGES, PARA_PAGES, DEMO_PAGE } from '../content/pages'
 import { track } from '../analytics'
 
 export function Navbar() {
   const [open, setOpen] = useState(false)
   const [solutionsOpen, setSolutionsOpen] = useState(false)
+  const [paraOpen, setParaOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const closeTimer = useRef<ReturnType<typeof setTimeout>>()
+  const paraCloseTimer = useRef<ReturnType<typeof setTimeout>>()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)
@@ -27,10 +29,19 @@ export function Navbar() {
     closeTimer.current = setTimeout(() => setSolutionsOpen(false), 120)
   }
 
+  const openPara = () => {
+    clearTimeout(paraCloseTimer.current)
+    setParaOpen(true)
+  }
+  const closePara = () => {
+    paraCloseTimer.current = setTimeout(() => setParaOpen(false), 120)
+  }
+
   const onFeatureClick = (nav: string) => {
     track('click_feature_page', { feature: nav, from: 'navbar' })
     setOpen(false)
     setSolutionsOpen(false)
+    setParaOpen(false)
   }
 
   return (
@@ -70,6 +81,36 @@ export function Navbar() {
               <div className="absolute left-0 top-full w-72 pt-3">
                 <ul className="overflow-hidden rounded-2xl border border-white/10 bg-ink-800 p-2 shadow-card">
                   {FEATURE_PAGES.map((p) => (
+                    <li key={p.slug}>
+                      <Link
+                        to={p.slug}
+                        onClick={() => onFeatureClick(p.nav)}
+                        className="block rounded-xl px-4 py-2.5 text-sm text-paper/80 transition-colors hover:bg-white/5 hover:text-lime-400"
+                      >
+                        {p.nav}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </li>
+
+          <li className="relative" onMouseEnter={openPara} onMouseLeave={closePara}>
+            <button
+              type="button"
+              className="flex items-center gap-1 text-sm font-medium text-paper/75 transition-colors hover:text-lime-400"
+              aria-expanded={paraOpen}
+              aria-haspopup="true"
+              onClick={() => setParaOpen((v) => !v)}
+            >
+              ¿Para quién?
+              <ChevronDown className={`h-4 w-4 transition-transform ${paraOpen ? 'rotate-180' : ''}`} />
+            </button>
+            {paraOpen && (
+              <div className="absolute left-0 top-full w-72 pt-3">
+                <ul className="overflow-hidden rounded-2xl border border-white/10 bg-ink-800 p-2 shadow-card">
+                  {PARA_PAGES.map((p) => (
                     <li key={p.slug}>
                       <Link
                         to={p.slug}
@@ -143,6 +184,20 @@ export function Navbar() {
               Soluciones
             </li>
             {FEATURE_PAGES.map((p) => (
+              <li key={p.slug}>
+                <Link
+                  to={p.slug}
+                  onClick={() => onFeatureClick(p.nav)}
+                  className="block rounded-lg px-4 py-3 text-base font-medium text-paper/80 hover:bg-white/5 hover:text-lime-400"
+                >
+                  {p.nav}
+                </Link>
+              </li>
+            ))}
+            <li className="px-2 pt-2 text-xs font-semibold uppercase tracking-widest text-paper/40">
+              ¿Para quién?
+            </li>
+            {PARA_PAGES.map((p) => (
               <li key={p.slug}>
                 <Link
                   to={p.slug}

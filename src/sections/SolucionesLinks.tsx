@@ -19,7 +19,7 @@ export function SolucionesLinks() {
     <Section id="soluciones" tone="dark" ariaLabel="Soluciones de Movete">
       <SectionHeading
         eyebrow="Soluciones"
-        title="Una página para cada necesidad de tu gimnasio"
+        title="Una página para cada necesidad de tu negocio"
         subtitle="Explorá en detalle cómo Movete resuelve cada parte de la operación."
       />
       <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
