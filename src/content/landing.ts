@@ -35,6 +35,10 @@ export const whatsappUrl = (() => {
   return `https://wa.me/${CONTACT.whatsappNumber}?text=${text}`
 })()
 
+/** Link de WhatsApp con un mensaje pre-cargado arbitrario. */
+export const whatsappUrlWith = (message: string) =>
+  `https://wa.me/${CONTACT.whatsappNumber}?text=${encodeURIComponent(message)}`
+
 /* ===========================================================
  * Navegación
  * =========================================================== */
@@ -482,6 +486,50 @@ export const COMO_FUNCIONA = {
       title: 'Tus socios usan la app',
       description:
         'Reservan clases, ven cupos, consultan abonos, compran o renuevan membresías, reciben avisos y hacen check-in desde Android.',
+    },
+  ],
+}
+
+/* ===========================================================
+ * 8b. PLANES Y PRECIOS
+ * =========================================================== */
+export const PLANES = {
+  eyebrow: 'Planes y precios',
+  title: 'Un plan para cada etapa de tu gimnasio',
+  subtitle:
+    'Elegí según la cantidad de socios activos. Precios en pesos argentinos, por mes. ¿No sabés cuál va mejor? Escribinos y te ayudamos a elegir.',
+  cta: 'Consultar por WhatsApp',
+  plans: [
+    {
+      name: 'Starter',
+      price: '14.900',
+      description: 'Para arrancar con la gestión ordenada.',
+      limits: ['Hasta 20 socios activos', '2 usuarios administrativos', '1 sede'],
+      includes: [
+        'Gestión completa: socios, clases, reservas y pagos',
+        'Integración con Mercado Pago',
+      ],
+    },
+    {
+      name: 'Growth',
+      price: '29.900',
+      description: 'Para gimnasios en crecimiento.',
+      limits: ['Hasta 50 socios activos', '5 usuarios administrativos', '2 sedes'],
+      includes: ['Todo lo de Starter', 'Check-in con QR'],
+    },
+    {
+      name: 'Pro',
+      price: '99.900',
+      description: 'Para operaciones grandes, con más equipo y sedes.',
+      limits: ['Hasta 120 socios activos', '12 usuarios administrativos', '4 sedes'],
+      includes: ['Todo lo de Growth', 'Estadísticas avanzadas', 'Notificaciones automáticas'],
+    },
+    {
+      name: 'Enterprise',
+      price: null,
+      description: 'Para cadenas y proyectos especiales.',
+      limits: ['Más de 120 socios activos', 'Usuarios y sedes a medida'],
+      includes: ['Todo lo de Pro', 'Multi-sede', 'Video en vivo'],
     },
   ],
 }

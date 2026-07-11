@@ -93,6 +93,15 @@ export function Navbar() {
               Cómo funciona
             </Link>
           </li>
+
+          <li>
+            <Link
+              to="/#precios"
+              className="text-sm font-medium text-paper/75 transition-colors hover:text-lime-400"
+            >
+              Precios
+            </Link>
+          </li>
         </ul>
 
         <div className="flex items-center gap-2">
@@ -151,6 +160,15 @@ export function Navbar() {
                 className="mt-1 block rounded-lg px-2 py-3 text-base font-medium text-paper/80 hover:bg-white/5 hover:text-lime-400"
               >
                 Cómo funciona
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/#precios"
+                onClick={() => setOpen(false)}
+                className="block rounded-lg px-2 py-3 text-base font-medium text-paper/80 hover:bg-white/5 hover:text-lime-400"
+              >
+                Precios
               </Link>
             </li>
             <li className="mt-2">

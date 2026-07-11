@@ -7,6 +7,7 @@ import { Socios } from '../sections/Socios'
 import { Pagos } from '../sections/Pagos'
 import { Seguridad } from '../sections/Seguridad'
 import { ComoFunciona } from '../sections/ComoFunciona'
+import { Planes } from '../sections/Planes'
 import { Beneficios } from '../sections/Beneficios'
 import { Diferencial } from '../sections/Diferencial'
 import { CTAFinal } from '../sections/CTAFinal'
@@ -32,6 +33,7 @@ export default function Home() {
       <Pagos />
       <Seguridad />
       <ComoFunciona />
+      <Planes />
       <Beneficios />
       <Diferencial />
       <CTAFinal />
