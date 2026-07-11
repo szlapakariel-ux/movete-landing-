@@ -18,6 +18,13 @@ app Android para reservar clases, ver abonos y hacer check-in con QR.
 - [Planes y precios](https://movete.szoluciones.com/#precios): Starter, Growth, Pro y Enterprise, con consulta por WhatsApp
 - [Seguridad y roles](https://movete.szoluciones.com/#seguridad): permisos para el equipo
 
+## Para quién
+
+- [Estudios de pilates, yoga y danza](https://movete.szoluciones.com/estudios): cupos por camilla o mat, packs de clases, cancelaciones con reglas
+- [Entrenadores y profes independientes](https://movete.szoluciones.com/entrenadores): grupos al aire libre, cobros con Mercado Pago, sin oficina
+- [Boxes de CrossFit y funcional](https://movete.szoluciones.com/boxes): WOD del día, cupos reales, check-in QR
+- [Gimnasios y escuelas deportivas](https://movete.szoluciones.com/gimnasios): morosos, vencimientos, control de ingresos
+
 ## Contacto y demo
 
 - [Sitio](https://movete.szoluciones.com/)
