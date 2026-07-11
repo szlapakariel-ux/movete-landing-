@@ -44,6 +44,10 @@ export function initAnalytics() {
     window.dataLayer!.push(args)
   }
   window.gtag = gtag
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted',
+    'ad_storage': 'denied'
+  })
   gtag('js', new Date())
   gtag('config', GA_ID)
 }
