@@ -26,7 +26,7 @@ const faqs = [
   },
   {
     q: '¿En qué dispositivos funciona?',
-    a: 'La app del socio está disponible para Android. Desde la app reserva clases, consulta abonos, recibe avisos y hace check-in con QR.',
+    a: 'En Android, con la app de Google Play, y en iPhone como PWA: el socio la instala desde el navegador, sin pasar por el App Store, y la usa igual que una app. En ambos casos reserva clases, consulta abonos, recibe avisos y hace check-in con QR.',
   },
 ]
 
@@ -46,7 +46,7 @@ export default function AppSocios() {
       <Breadcrumbs items={[{ name: 'Inicio', path: '/' }, { name: PAGE.nav, path: PAGE.slug }]} />
 
       <PageHero
-        eyebrow="App para socios · Android"
+        eyebrow="App para socios · Android y iPhone"
         title={PAGE.h1}
         intro="Dales a tus socios una app para reservar clases, consultar abonos, recibir avisos y hacer check-in con QR. Menos consultas repetidas para tu equipo."
         bullets={['Reservas y cupos', 'Abonos y saldos', 'Notificaciones', 'Check-in con QR']}

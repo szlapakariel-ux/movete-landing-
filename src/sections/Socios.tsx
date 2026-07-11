@@ -13,7 +13,7 @@ export function Socios() {
   const screen = blockScreens[active] ?? 'home'
 
   return (
-    <Section id="app-socio" tone="light" ariaLabel="App móvil Android para socios">
+    <Section id="app-socio" tone="light" ariaLabel="App móvil para socios">
       <SectionHeading
         eyebrow={APP_SOCIO.eyebrow}
         title={APP_SOCIO.title}

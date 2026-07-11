@@ -67,7 +67,7 @@ export const HERO = {
     'Movete centraliza la gestión administrativa y le da a tus socios una app móvil para reservar clases, ver sus abonos, recibir notificaciones y hacer check-in con QR.',
   bullets: [
     'Panel web para administrar el gimnasio',
-    'App Android para socios',
+    'App para socios en Android y iPhone',
     'Reservas, pagos, abonos y notificaciones',
     'Estadísticas, alertas y control de asistencia',
   ],
@@ -135,7 +135,7 @@ export const SOLUCION = {
     {
       title: 'El socio usa una app móvil',
       description:
-        'Desde Android, cada socio reserva, consulta sus abonos y hace check-in sin depender de nadie.',
+        'Desde su celular, Android o iPhone, cada socio reserva, consulta sus abonos y hace check-in sin depender de nadie.',
     },
     {
       title: 'Todo queda centralizado',
@@ -244,10 +244,10 @@ export const ADMIN = {
  * 5. SOCIOS / APP MÓVIL — 15 funciones en 5 bloques
  * =========================================================== */
 export const APP_SOCIO = {
-  eyebrow: 'Para tus socios · App Android',
+  eyebrow: 'Para tus socios · App móvil',
   title: 'Una app simple para que tus socios gestionen su entrenamiento',
   subtitle:
-    'Desde la app móvil Android, cada socio puede registrarse, elegir su gimnasio, reservar clases, consultar actividades, ver sus abonos, revisar su estado de cuenta, comprar o renovar membresías, recibir notificaciones y hacer check-in con QR.',
+    'Desde la app móvil —en Android o iPhone—, cada socio puede registrarse, elegir su gimnasio, reservar clases, consultar actividades, ver sus abonos, revisar su estado de cuenta, comprar o renovar membresías, recibir notificaciones y hacer check-in con QR.',
   closing:
     'Tus socios se autogestionan mejor y tu equipo recibe menos consultas repetidas.',
   blocks: [
@@ -365,7 +365,7 @@ export const APP_SOCIO = {
           title: 'Notificaciones',
           description:
             'Recibe avisos importantes desde la app, push o email, y consulta su historial.',
-          bullets: ['In-app', 'Push Android', 'Email'],
+          bullets: ['In-app', 'Push', 'Email'],
         },
       ],
     },
@@ -485,7 +485,7 @@ export const COMO_FUNCIONA = {
       number: '03',
       title: 'Tus socios usan la app',
       description:
-        'Reservan clases, ven cupos, consultan abonos, compran o renuevan membresías, reciben avisos y hacen check-in desde Android.',
+        'Reservan clases, ven cupos, consultan abonos, compran o renuevan membresías, reciben avisos y hacen check-in desde su celular, Android o iPhone.',
     },
   ],
 }
@@ -581,7 +581,7 @@ export const DIFERENCIAL = {
     'Movete no solo permite reservar clases. Conecta la gestión administrativa del gimnasio con la experiencia diaria del socio.',
   items: [
     'Web Admin completo',
-    'App móvil Android para socios',
+    'App móvil para socios (Android y iPhone)',
     'Onboarding y vinculación por gimnasio',
     'Multi-organización',
     'Catálogo de actividades',

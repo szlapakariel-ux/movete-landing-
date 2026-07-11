@@ -95,7 +95,7 @@ export default function Estudios() {
         <SectionHeading eyebrow="Packs y cobros" title="Packs de clases con créditos que se administran solos" />
         <div className="mt-14 grid gap-5 sm:grid-cols-3">
           <Card icon={Ticket} title="Packs de clases" description="Vendés packs de 4, 8 o 12 clases con créditos y vencimientos. Cada reserva descuenta un crédito automáticamente y el alumno siempre ve cuántos le quedan." />
-          <Card icon={CreditCard} title="Cobros con Mercado Pago" description="Tus alumnos compran y renuevan sus packs desde la app Android con Checkout Pro. Y si te pagan en efectivo o por transferencia, lo registrás en el panel." />
+          <Card icon={CreditCard} title="Cobros con Mercado Pago" description="Tus alumnos compran y renuevan sus packs desde la app con Checkout Pro, en Android o iPhone. Y si te pagan en efectivo o por transferencia, lo registrás en el panel." />
           <Card icon={BellRing} title="Estado de cuenta y avisos" description="Ves los deudores del mes y el estado de cuenta de cada alumno. Las notificaciones push y por email recuerdan pagos pendientes y vencimientos por vos." />
         </div>
       </Section>

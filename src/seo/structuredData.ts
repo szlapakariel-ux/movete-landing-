@@ -8,7 +8,7 @@ export const organizationLd = {
   url: SITE_URL + '/',
   logo: SITE_URL + '/favicon.svg',
   description:
-    'Plataforma de gestión para gimnasios, boxes y estudios: panel web para administradores y app Android para socios.',
+    'Plataforma de gestión para gimnasios, boxes y estudios: panel web para administradores y app móvil para socios (Android y iPhone).',
 }
 
 /** Aplicación de software (home y páginas de producto). */
@@ -18,9 +18,9 @@ export const softwareApplicationLd = {
   name: 'Movete',
   url: SITE_URL + '/',
   description:
-    'Plataforma para gimnasios, boxes y estudios. Panel web para administrar clases, reservas, pagos, abonos y asistencia, más una app Android para socios.',
+    'Plataforma para gimnasios, boxes y estudios. Panel web para administrar clases, reservas, pagos, abonos y asistencia, más una app móvil para socios (Android y iPhone).',
   applicationCategory: 'BusinessApplication',
-  operatingSystem: 'Web, Android',
+  operatingSystem: 'Web, Android, iOS',
   offers: {
     '@type': 'Offer',
     price: '0',

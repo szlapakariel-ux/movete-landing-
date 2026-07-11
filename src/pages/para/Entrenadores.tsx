@@ -41,7 +41,7 @@ const faqs = [
   },
   {
     q: '¿Necesito una computadora o un local para usarlo?',
-    a: 'No. El panel es web y lo abrís desde el navegador, también en el celular, entre clase y clase. Y la app de tus alumnos funciona offline-first: en la plaza o el parque con mala señal, siguen viendo sus entrenamientos y reservas.',
+    a: 'No. El panel es web, lo abrís desde el navegador y lo podés instalar como app en tu celular (PWA) para tenerlo a un toque entre clase y clase. Y la app de tus alumnos —Android o iPhone— funciona offline-first: en la plaza o el parque con mala señal, siguen viendo sus entrenamientos y reservas.',
   },
 ]
 
