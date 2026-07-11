@@ -30,13 +30,13 @@ export function DemoForm() {
       '👋 *Solicitud de demo de Movete*',
       '',
       `*Nombre:* ${d.nombre}`,
-      `*Negocio:* ${d.gimnasio} (${d.tipo})`,
+      d.tipo ? `*Negocio:* ${d.gimnasio} (${d.tipo})` : `*Negocio:* ${d.gimnasio}`,
       `*WhatsApp:* ${d.whatsapp}`,
-      `*Email:* ${d.email}`,
-      `*Socios:* ${d.socios}`,
-      `*Sedes:* ${d.sedes}`,
-      `*Problema a resolver:* ${d.problema}`,
     ]
+    if (d.email) lines.push(`*Email:* ${d.email}`)
+    if (d.socios) lines.push(`*Socios:* ${d.socios}`)
+    if (d.sedes) lines.push(`*Sedes:* ${d.sedes}`)
+    if (d.problema) lines.push(`*Problema a resolver:* ${d.problema}`)
     if (d.clases) lines.push(`*Clases semanales:* ${d.clases}`)
     if (d.sistema) lines.push(`*Sistema actual:* ${d.sistema}`)
     if (d.comentario) lines.push(`*Comentario:* ${d.comentario}`)
@@ -121,7 +121,6 @@ export function DemoForm() {
     <form
       onSubmit={handleSubmit}
       onFocusCapture={onFirstInteraction}
-      noValidate
       className="rounded-3xl border border-white/10 bg-ink-800 p-7 shadow-card sm:p-9"
     >
       {/* Honeypot antispam (oculto para humanos) */}
@@ -137,11 +136,11 @@ export function DemoForm() {
         <Field name="nombre" label="Nombre y apellido" required autoComplete="name" />
         <Field name="gimnasio" label="Nombre del gimnasio, box o estudio" required autoComplete="organization" />
         <Field name="whatsapp" label="WhatsApp" type="tel" required autoComplete="tel" />
-        <Field name="email" label="Email" type="email" required autoComplete="email" />
-        <SelectField name="tipo" label="Tipo de negocio" options={TIPOS} required />
-        <SelectField name="socios" label="Cantidad aproximada de socios" options={SOCIOS} required />
-        <SelectField name="sedes" label="Cantidad de sedes" options={SEDES} required />
-        <SelectField name="problema" label="Principal problema a resolver" options={PROBLEMAS} required />
+        <Field name="email" label="Email (opcional)" type="email" autoComplete="email" />
+        <SelectField name="tipo" label="Tipo de negocio (opcional)" options={TIPOS} />
+        <SelectField name="socios" label="Cantidad aproximada de socios (opcional)" options={SOCIOS} />
+        <SelectField name="sedes" label="Cantidad de sedes (opcional)" options={SEDES} />
+        <SelectField name="problema" label="Principal problema a resolver (opcional)" options={PROBLEMAS} />
         <Field name="clases" label="Clases semanales (opcional)" type="number" />
         <Field name="sistema" label="Sistema que usás hoy (opcional)" />
       </div>
@@ -168,7 +167,11 @@ export function DemoForm() {
         )}
       </Button>
 
-      <p className="mt-4 text-center text-xs text-paper/45">
+      <p className="mt-4 text-center text-xs text-paper/60">
+        Te respondemos por WhatsApp en menos de 24 hs, sin compromiso.
+      </p>
+
+      <p className="mt-2 text-center text-xs text-paper/45">
         Al enviar aceptás nuestra{' '}
         <a href="/privacidad" className="underline hover:text-lime-400">
           política de privacidad
@@ -215,8 +218,8 @@ function SelectField({ name, label, options, required }: { name: string; label: 
         {required && <span className="ml-1 text-lime-400">*</span>}
       </label>
       <select id={name} name={name} required={required} defaultValue="" className={inputClasses}>
-        <option value="" disabled>
-          Seleccioná una opción
+        <option value="" disabled={required} className="bg-ink-800">
+          {required ? 'Seleccioná una opción' : 'Sin especificar'}
         </option>
         {options.map((o) => (
           <option key={o} value={o} className="bg-ink-800">

@@ -95,21 +95,26 @@ export function Navbar() {
           </li>
         </ul>
 
-        <div className="hidden lg:block">
-          <Button as="a" href={DEMO_PAGE.slug} variant="primary">
+        <div className="flex items-center gap-2">
+          <Button
+            as="a"
+            href={DEMO_PAGE.slug}
+            variant="primary"
+            className="max-lg:px-3.5 max-lg:py-2 max-sm:text-xs"
+          >
             {DEMO_PAGE.nav}
           </Button>
-        </div>
 
-        <button
-          type="button"
-          className="inline-flex items-center justify-center rounded-lg p-2 text-paper lg:hidden"
-          aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-        >
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+          <button
+            type="button"
+            className="inline-flex items-center justify-center rounded-lg p-2 text-paper lg:hidden"
+            aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile */}
