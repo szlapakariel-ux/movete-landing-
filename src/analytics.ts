@@ -43,12 +43,17 @@ export function initAnalytics() {
   document.head.appendChild(s)
 
   window.dataLayer = window.dataLayer || []
-  const gtag: Gtag = (...args) => {
-    window.dataLayer!.push(args)
+  // gtag.js solo procesa comandos pusheados como objeto `arguments`; un array
+  // (rest params) se ignora silenciosamente. Reusar el gtag global del snippet
+  // de Consent Mode en index.html, que ya pushea `arguments`.
+  if (!window.gtag) {
+    window.gtag = function () {
+      // eslint-disable-next-line prefer-rest-params
+      window.dataLayer!.push(arguments)
+    } as Gtag
   }
-  window.gtag = gtag
-  gtag('js', new Date())
-  gtag('config', GA_ID)
+  window.gtag('js', new Date())
+  window.gtag('config', GA_ID)
 }
 
 /** Registra un evento de conversión. */
