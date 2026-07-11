@@ -1,5 +1,6 @@
 import type { RouteRecord } from 'vite-react-ssg'
 import { Layout } from './components/Layout'
+import { RouteError } from './components/RouteError'
 import Home from './pages/Home'
 import Reservas from './pages/funcionalidades/Reservas'
 import Pagos from './pages/funcionalidades/Pagos'
@@ -17,6 +18,7 @@ export const routes: RouteRecord[] = [
   {
     path: '/',
     element: <Layout />,
+    errorElement: <RouteError />,
     entry: 'src/components/Layout.tsx',
     children: [
       { index: true, element: <Home /> },
