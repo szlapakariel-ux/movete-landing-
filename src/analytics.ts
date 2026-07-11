@@ -32,7 +32,10 @@ export type AnalyticsEvent =
 
 /** Inicializa GA4 (carga el script de gtag una sola vez) si hay ID configurado. */
 export function initAnalytics() {
-  if (typeof window === 'undefined' || !GA_ID || window.gtag) return
+  // No usar window.gtag como guard: el snippet de Consent Mode en index.html
+  // ya define un gtag global antes de que corra esto.
+  if (typeof window === 'undefined' || !GA_ID) return
+  if (document.querySelector('script[src^="https://www.googletagmanager.com/gtag/js"]')) return
 
   const s = document.createElement('script')
   s.async = true
